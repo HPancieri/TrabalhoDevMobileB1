@@ -42,5 +42,11 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		color: colors.green,
 	},
+	ShowMoreText: {
+		textAlign: "center",
+		color: colors.darkerBlue,
+		fontWeight: "bold",
+		marginTop: 5,
+	},
 });
 export default styles;
