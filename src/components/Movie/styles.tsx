@@ -13,9 +13,9 @@ const styles = StyleSheet.create({
 	},
 	Image: {
 		width: "40%",
-		height: 30,
+		height: "90%",
 		backgroundColor: "blue",
-		marginRight: 10,
+		margin: 15,
 		borderRadius: 10,
 	},
 	Description: {},
@@ -27,11 +27,20 @@ const styles = StyleSheet.create({
 	},
 	TextContainer: {
 		width: "60%",
+		marginRight: 10,
 	},
 	BuyBtn: {
-		backgroundColor: colors.darkGray,
+		backgroundColor: colors.darkBlue,
 		color: colors.white,
 		borderRadius: 10,
+		textAlign: "center",
+		padding: 10,
+		margin: 10,
+	},
+	BuyText: {
+		fontSize: 18,
+		fontWeight: "bold",
+		color: colors.green,
 	},
 });
 export default styles;

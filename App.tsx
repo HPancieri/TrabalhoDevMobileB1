@@ -5,8 +5,8 @@ import colors from "./src/components/Movie/colors";
 
 export default function App() {
 
-	const apiURL = "https://api.otaviolube.com/";
-	const extMovies = "api/filmes?populate=*";
+	const apiURL = "https://api.otaviolube.com";
+	const extMovies = "/api/filmes?populate=*";
 
 	let [ movies, setMovies ] = useState([]);
 
@@ -32,7 +32,7 @@ export default function App() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: colors.gray,
+		backgroundColor: colors.lightGreen,
 		alignItems: "center",
 		justifyContent: "center",
 	},

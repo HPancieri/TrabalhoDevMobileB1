@@ -14,7 +14,7 @@ export default function Movie (props: any) {
 				<Text style={styles.Description}>{props.movie.attributes.sinopse}</Text>
 
 				<TouchableOpacity style={styles.BuyBtn} onPress={() => {}}>
-					<Text>Comprar Ingresso</Text>
+					<Text style={styles.BuyText}>Comprar Ingresso</Text>
 				</TouchableOpacity>
 			</View>
 		</View>
