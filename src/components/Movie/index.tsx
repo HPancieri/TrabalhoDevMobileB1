@@ -2,7 +2,24 @@ import { Image, View, Text, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import { useState } from "react";
 
-export default function Movie (props: any) {
+interface MovieProps {
+	apiURL: string,
+	movie: {
+		attributes: {
+			titulo: string,
+			sinopse: string,
+			poster: {
+				data: {
+					attributes: {
+						url: string,
+					},
+				},
+			},
+		},
+	},
+}
+
+export default function Movie (props: MovieProps) {
 	let [ readMore, setReadMore ] = useState(false);
 	let tooMuchText = props.movie.attributes.sinopse.length >= 250;
 
@@ -17,19 +34,21 @@ export default function Movie (props: any) {
 				<Text style={styles.Title}>{props.movie.attributes.titulo}</Text>
 
 				{
-					(tooMuchText && !readMore) ?
-						<>
-							<Text style={styles.Description}>{props.movie.attributes.sinopse.slice(0, 250)}...</Text>
-							<TouchableOpacity onPress={() => setReadMore(true)}>
-								<Text style={styles.ShowMoreText}>Ler mais...</Text>
-							</TouchableOpacity>
-						</> : (tooMuchText && readMore) ?
-						<>
-							<Text style={styles.Description}>{props.movie.attributes.sinopse}</Text>
-							<TouchableOpacity onPress={() => setReadMore(false)}>
-								<Text style={styles.ShowMoreText}>Ler menos...</Text>
-							</TouchableOpacity>
-						</> :
+					(tooMuchText) ?
+						(!readMore) ?
+							<>
+								<Text style={styles.Description}>{props.movie.attributes.sinopse.slice(0, 250)}...</Text>
+								<TouchableOpacity onPress={() => setReadMore(true)}>
+									<Text style={styles.ShowMoreText}>Ler mais...</Text>
+								</TouchableOpacity>
+							</> :
+							<>
+								<Text style={styles.Description}>{props.movie.attributes.sinopse}</Text>
+								<TouchableOpacity onPress={() => setReadMore(false)}>
+									<Text style={styles.ShowMoreText}>Ler menos...</Text>
+								</TouchableOpacity>
+							</>
+						:
 						<Text style={styles.Description}>{props.movie.attributes.sinopse}</Text>
 				}
 
