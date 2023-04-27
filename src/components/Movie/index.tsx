@@ -36,6 +36,7 @@ export default function Movie (props: MovieProps) {
 					<Text style={styles.Title}>{props.movie.attributes.titulo}</Text>
 
 					{
+						// Renders subtitle information, if it exists;
 						(props.movie.attributes.subtitulo) ?
 							<Text style={styles.Subtitle}>{props.movie.attributes.subtitulo}</Text> :
 							<></>
@@ -43,14 +44,17 @@ export default function Movie (props: MovieProps) {
 				</View>
 
 				{
+					// Controls read more functionality;
 					(tooMuchText) ?
 						(!readMore) ?
+							// tooMuchText AND NOT readMore;
 							<>
 								<Text style={styles.Description}>{props.movie.attributes.sinopse.slice(0, 250)}...</Text>
 								<TouchableOpacity onPress={() => setReadMore(true)}>
 									<Text style={styles.ShowMoreText}>Ler mais...</Text>
 								</TouchableOpacity>
 							</> :
+							// tooMuchText AND readMore;
 							<>
 								<Text style={styles.Description}>{props.movie.attributes.sinopse}</Text>
 								<TouchableOpacity onPress={() => setReadMore(false)}>
@@ -58,6 +62,7 @@ export default function Movie (props: MovieProps) {
 								</TouchableOpacity>
 							</>
 						:
+						// NOT tooMuchText;
 						<Text style={styles.Description}>{props.movie.attributes.sinopse}</Text>
 				}
 

@@ -10,6 +10,7 @@ export default function App() {
 
 	let [ movies, setMovies ] = useState([]);
 
+	// Fetches API response and sets it to the movies variable;
 	useEffect(() => {
 		fetch(apiURL + extMovies)
 			.then(data => data.json())
