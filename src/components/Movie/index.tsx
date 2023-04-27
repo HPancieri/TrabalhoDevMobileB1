@@ -7,6 +7,7 @@ interface MovieProps {
 	movie: {
 		attributes: {
 			titulo: string,
+			subtitulo: string,
 			sinopse: string,
 			poster: {
 				data: {
@@ -31,7 +32,15 @@ export default function Movie (props: MovieProps) {
 			/>
 
 			<View style={styles.TextContainer}>
-				<Text style={styles.Title}>{props.movie.attributes.titulo}</Text>
+				<View style={styles.TitleSubtitleContainer}>
+					<Text style={styles.Title}>{props.movie.attributes.titulo}</Text>
+
+					{
+						(props.movie.attributes.subtitulo) ?
+							<Text style={styles.Subtitle}>{props.movie.attributes.subtitulo}</Text> :
+							<></>
+					}
+				</View>
 
 				{
 					(tooMuchText) ?

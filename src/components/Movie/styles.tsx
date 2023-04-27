@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		textAlign: "center",
 		fontSize: 20,
-		marginBottom: 10,
 	},
 	TextContainer: {
 		width: "60%",
@@ -47,6 +46,13 @@ const styles = StyleSheet.create({
 		color: colors.darkerBlue,
 		fontWeight: "bold",
 		marginTop: 5,
+	},
+	Subtitle: {
+		textAlign: "center",
+		fontWeight: "bold",
+	},
+	TitleSubtitleContainer: {
+		margin: 10,
 	},
 });
 export default styles;
