@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { useEffect, useState } from "react";
 import Movie from "./src/components/Movie";
 import colors from "./src/components/Movie/colors";
@@ -24,7 +24,7 @@ export default function App() {
 			{
 				(movies.length > 0) ?
 					movies.map(movie => <Movie apiURL={apiURL} movie={movie}/>) :
-					<Text style={styles.loadingText}>Carregando...</Text>
+					<ActivityIndicator size="large" color={colors.darkerBlue}/>
 			}
 		</View>
 	);
@@ -36,9 +36,5 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.lightGreen,
 		alignItems: "center",
 		justifyContent: "center",
-	},
-	loadingText: {
-		fontSize: 20,
-		fontWeight: "bold",
 	},
 });
