@@ -1,4 +1,4 @@
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { useEffect, useState } from "react";
 import Movie from "./src/components/Movie";
 import colors from "./src/components/Movie/colors";
@@ -20,13 +20,13 @@ export default function App() {
 	}, []);
 
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
 			{
 				(movies.length > 0) ?
 					movies.map(movie => <Movie apiURL={apiURL} movie={movie}/>) :
 					<ActivityIndicator size="large" color={colors.darkerBlue}/>
 			}
-		</View>
+		</SafeAreaView>
 	);
 }
 
