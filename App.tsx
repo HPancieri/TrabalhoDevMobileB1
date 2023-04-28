@@ -1,4 +1,4 @@
-import { ActivityIndicator, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, SafeAreaView, StyleSheet } from 'react-native';
 import { useEffect, useState } from "react";
 import Movie from "./src/components/Movie";
 import colors from "./src/components/Movie/colors";
