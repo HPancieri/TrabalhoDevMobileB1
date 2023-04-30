@@ -1,21 +1,26 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import colors from "./colors";
+
+const maxWidth = Dimensions.get("window").width * 0.9;
+const maxHeight = Dimensions.get("window").height * 0.8;
 
 const styles = StyleSheet.create({
 	MovieContainer: {
-		flexDirection: "row",
-		width: "90%",
+		width: maxWidth,
+		height: maxHeight,
 		backgroundColor: colors.blue,
-		justifyContent: "space-around",
-		padding: 15,
+		justifyContent: "space-evenly",
+		alignItems: "center",
+		padding: 10,
 		margin: 15,
 		borderRadius: 10,
 	},
 	Image: {
-		width: "40%",
-		height: "90%",
-		margin: 15,
+		width: "90%",
+		height: "60%",
+		margin: 10,
 		borderRadius: 10,
+		resizeMode: "cover",
 	},
 	Description: {},
 	Title: {
@@ -24,8 +29,8 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 	},
 	TextContainer: {
-		width: "60%",
-		marginRight: 10,
+		width: "90%",
+		// justifyContent: "space-around",
 	},
 	BuyBtn: {
 		backgroundColor: colors.darkBlue,
@@ -39,6 +44,8 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		fontWeight: "bold",
 		color: colors.green,
+		justifyContent: "center",
+		alignItems: "center",
 	},
 	ShowMoreText: {
 		textAlign: "center",

@@ -1,4 +1,4 @@
-import { ActivityIndicator, SafeAreaView, StyleSheet } from 'react-native';
+import { ActivityIndicator, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import { useEffect, useState } from "react";
 import Movie from "./src/components/Movie";
 import colors from "./src/components/Movie/colors";
@@ -22,11 +22,13 @@ export default function App() {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			{
-				(movies.length > 0) ?
-					movies.map(movie => <Movie apiURL={apiURL} movie={movie} key={movie.id}/>) :
-					<ActivityIndicator size="large" color={colors.darkerBlue}/>
-			}
+			<ScrollView horizontal={true} pagingEnabled={true}>
+				{
+					(movies.length > 0) ?
+						movies.map(movie => <Movie apiURL={apiURL} movie={movie} key={movie.id}/>) :
+						<ActivityIndicator size="large" color={colors.darkerBlue}/>
+				}
+			</ScrollView>
 		</SafeAreaView>
 	);
 }
@@ -35,7 +37,6 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: colors.lightGreen,
-		alignItems: "center",
 		justifyContent: "center",
 	},
 });
