@@ -22,13 +22,13 @@ export default function App() {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<ScrollView horizontal={true} pagingEnabled={true}>
-				{
-					(movies.length > 0) ?
-						movies.map(movie => <Movie apiURL={apiURL} movie={movie} key={movie.id}/>) :
-						<ActivityIndicator size="large" color={colors.darkerBlue}/>
-				}
-			</ScrollView>
+			{
+				(movies.length > 0) ?
+					<ScrollView horizontal pagingEnabled>
+						{movies.map(movie => <Movie apiURL={apiURL} movie={movie} key={movie.id}/>)}
+					</ScrollView> :
+				<ActivityIndicator size="large" color={colors.nord0}/>
+			}
 		</SafeAreaView>
 	);
 }
@@ -36,7 +36,7 @@ export default function App() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: colors.lightGreen,
+		backgroundColor: colors.nord10,
 		justifyContent: "center",
 	},
 });
